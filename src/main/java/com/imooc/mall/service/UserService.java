@@ -1,4 +1,4 @@
-package com.imooc.mall.model.service;
+package com.imooc.mall.service;
 
 import com.imooc.mall.model.pojo.User;
 

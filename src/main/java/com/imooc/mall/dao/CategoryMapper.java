@@ -1,4 +1,4 @@
-package com.imooc.mall.model.dao;
+package com.imooc.mall.dao;
 
 import com.imooc.mall.model.pojo.Category;
 import org.springframework.stereotype.Repository;

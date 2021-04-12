@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.imooc.mall.model.dao")
+@MapperScan(basePackages = "com.imooc.mall.dao")
 public class MallApplication {
 
 	public static void main(String[] args) {

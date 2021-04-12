@@ -1,13 +1,11 @@
-package com.imooc.mall.model.controller;
+package com.imooc.mall.controller;
 
 import com.imooc.mall.model.pojo.User;
-import com.imooc.mall.model.service.UserService;
+import com.imooc.mall.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.annotation.Resource;
 
 /**
  * 用户控制器
