@@ -5,8 +5,11 @@ import com.imooc.mall.exception.ImoocMallException;
 import com.imooc.mall.exception.ImoocMallExceptionEnum;
 import com.imooc.mall.model.pojo.User;
 import com.imooc.mall.service.UserService;
+import com.imooc.mall.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.security.NoSuchAlgorithmException;
 
 /**
  * UserService实现类
@@ -22,7 +25,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void register(String userName, String password) throws ImoocMallException {
+    public void register(String userName, String password) throws ImoocMallException, NoSuchAlgorithmException {
         User result = userMapper.selectByName(userName);
         if(result != null) {
             throw new ImoocMallException(ImoocMallExceptionEnum.NAME_EXISTED);
@@ -30,7 +33,7 @@ public class UserServiceImpl implements UserService {
         // 写到数据库
         User user = new User();
         user.setUsername(userName);
-        user.setPassword(password);
+        user.setPassword(MD5Utils.getMD5Str(password));
         int count = userMapper.insertSelective(user);
         if(count == 0) {
             throw new ImoocMallException(ImoocMallExceptionEnum.INSERT_FAILED);

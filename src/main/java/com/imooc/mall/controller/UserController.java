@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.security.NoSuchAlgorithmException;
+
 /**
  * 用户控制器
  */
@@ -29,7 +31,7 @@ public class UserController {
 
     @PostMapping("/register")
     @ResponseBody
-    public ApiRestResponse register(@RequestParam("userName") String userName, @RequestParam("password") String password) throws ImoocMallException {
+    public ApiRestResponse register(@RequestParam("userName") String userName, @RequestParam("password") String password) throws ImoocMallException, NoSuchAlgorithmException {
         if(StringUtils.isEmpty(userName)) {
             return ApiRestResponse.error(ImoocMallExceptionEnum.NEED_USER_NAME);
         }
