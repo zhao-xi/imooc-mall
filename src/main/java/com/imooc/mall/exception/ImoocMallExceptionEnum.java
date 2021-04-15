@@ -7,12 +7,16 @@ public enum ImoocMallExceptionEnum {
     NEED_USER_NAME(10001, "用户不能为空"),
     NEED_PASSWORD(10002, "密码不能为空"),
     PASSWORD_TOO_SHORT(10003, "密码长度不能少于8位"),
-    NAME_EXISTED(10004, "用户名已存在"),
+    NAME_EXISTED(10004, "名称已存在"),
     INSERT_FAILED(10005, "插入失败，请重试"),
     WRONG_PASSWORD(10006, "用户名或密码错误"),
     NEED_LOGIN(10007, "用户未登录"),
     UPDATE_FAILED(10008, "更新失败"),
     NEED_ADMIN(10009, "无管理员权限"),
+    PARAM_NULL(10010, "参数不能为空"),
+    CREATE_FAILED(10011, "新增失败"),
+    REQUEST_PARAM_ERROR(10012, "参数错误"),
+    DELETE_FAIL(10013, "删除失败"),
     SYSTEM_ERROR(20000, "系统异常");
 
     /**
