@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.imooc.mall.dao.ProductMapper">
+<mapper namespace="com.imooc.mall.model.dao.ProductMapper">
   <resultMap id="BaseResultMap" type="com.imooc.mall.model.pojo.Product">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -21,6 +21,12 @@
     <include refid="Base_Column_List" />
     from imooc_mall_product
     where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByName" parameterType="String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from imooc_mall_product
+    where name = #{name}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from imooc_mall_product
@@ -149,4 +155,36 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <update id="batchUpdateSellStatus">
+    update imooc_mall_product
+    set status=#{sellStatus}
+    where id in
+    <foreach collection="ids" close=")" item="id" open="(" separator=",">
+      #{id}
+    </foreach>
+  </update>
+  <select id="selectListForAdmin" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from imooc_mall_product
+    order by update_time desc
+  </select>
+  <select id="selectList" parameterType="com.imooc.mall.model.query.ProductListQuery" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from imooc_mall_product
+    <where>
+      <if test="query.keyword != null">
+        and name like #{query.keyword}
+      </if>
+      <if test="query.categoryIds != null">
+        and category_id in
+        <foreach collection="query.categoryIds" open="(" item="item" close=")" separator=",">
+          #{item}
+        </foreach>
+      </if>
+      and status = 1
+    </where>
+    order by update_time desc
+  </select>
 </mapper>

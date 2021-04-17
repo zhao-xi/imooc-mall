@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.imooc.mall.dao")
+@MapperScan(basePackages = "com.imooc.mall.model.dao")
 @EnableSwagger2
 @EnableCaching
 public class MallApplication {

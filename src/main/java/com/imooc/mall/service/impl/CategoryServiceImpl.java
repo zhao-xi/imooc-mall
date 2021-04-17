@@ -1,9 +1,8 @@
 package com.imooc.mall.service.impl;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.imooc.mall.dao.CategoryMapper;
+import com.imooc.mall.model.dao.CategoryMapper;
 import com.imooc.mall.exception.ImoocMallException;
 import com.imooc.mall.exception.ImoocMallExceptionEnum;
 import com.imooc.mall.model.pojo.Category;
@@ -74,9 +73,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     @Cacheable(value = "listCategoryForCustomer")
-    public List<CategoryVO> listForCustomer() {
+    public List<CategoryVO> listForCustomer(Integer parentId) {
         List<CategoryVO> categoryVOList = new ArrayList<>();
-        recursivelyFindCategory(categoryVOList, 0);
+        recursivelyFindCategory(categoryVOList, parentId);
         return categoryVOList;
     }
     private void recursivelyFindCategory(List<CategoryVO> categoryVOList, Integer parentId) {

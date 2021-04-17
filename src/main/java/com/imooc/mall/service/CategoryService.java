@@ -17,5 +17,5 @@ public interface CategoryService {
 
     PageInfo listForAdmin(Integer pageNum, Integer pageSize);
 
-    List<CategoryVO> listForCustomer();
+    List<CategoryVO> listForCustomer(Integer parentId);
 }

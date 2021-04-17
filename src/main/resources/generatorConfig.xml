@@ -43,7 +43,7 @@
       <property name="enableSubPackages" value="true"/>
     </sqlMapGenerator>
     <!--生成Dao类存放位置-->
-    <javaClientGenerator type="XMLMAPPER" targetPackage="com.imooc.mall.dao"
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.imooc.mall.model.dao"
       targetProject="src/main/java">
       <property name="enableSubPackages" value="true"/>
     </javaClientGenerator>

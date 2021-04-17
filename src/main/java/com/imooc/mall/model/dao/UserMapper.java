@@ -1,4 +1,4 @@
-package com.imooc.mall.dao;
+package com.imooc.mall.model.dao;
 
 import com.imooc.mall.model.pojo.User;
 import org.apache.ibatis.annotations.Param;

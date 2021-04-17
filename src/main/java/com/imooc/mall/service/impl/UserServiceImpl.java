@@ -1,6 +1,6 @@
 package com.imooc.mall.service.impl;
 
-import com.imooc.mall.dao.UserMapper;
+import com.imooc.mall.model.dao.UserMapper;
 import com.imooc.mall.exception.ImoocMallException;
 import com.imooc.mall.exception.ImoocMallExceptionEnum;
 import com.imooc.mall.model.pojo.User;
