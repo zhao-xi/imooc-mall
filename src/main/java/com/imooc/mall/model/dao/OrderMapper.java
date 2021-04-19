@@ -1,6 +1,7 @@
 package com.imooc.mall.model.dao;
 
 import com.imooc.mall.model.pojo.Order;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -16,4 +17,6 @@ public interface OrderMapper {
     int updateByPrimaryKeySelective(Order record);
 
     int updateByPrimaryKey(Order record);
+
+    Order selectByOrderNo(@Param("orderNo") String orderNo);
 }
