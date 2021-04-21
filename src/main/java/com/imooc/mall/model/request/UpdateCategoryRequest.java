@@ -53,4 +53,15 @@ public class UpdateCategoryRequest {
     public void setOrderNum(Integer orderNum) {
         this.orderNum = orderNum;
     }
+
+    @Override
+    public String toString() {
+        return "UpdateCategoryRequest{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type=" + type +
+                ", parentId=" + parentId +
+                ", orderNum=" + orderNum +
+                '}';
+    }
 }

@@ -53,4 +53,15 @@ public class CreateOrderRequest {
     public void setPaymentType(Integer paymentType) {
         this.paymentType = paymentType;
     }
+
+    @Override
+    public String toString() {
+        return "CreateOrderRequest{" +
+                "receiverName='" + receiverName + '\'' +
+                ", receiverMobile='" + receiverMobile + '\'' +
+                ", receiverAddress='" + receiverAddress + '\'' +
+                ", postage=" + postage +
+                ", paymentType=" + paymentType +
+                '}';
+    }
 }

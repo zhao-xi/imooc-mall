@@ -73,4 +73,17 @@ public class ProductListRequest {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public String toString() {
+        return "ProductListRequest{" +
+                "keyword='" + keyword + '\'' +
+                ", categoryId=" + categoryId +
+                ", orderBy='" + orderBy + '\'' +
+                ", pageNum=" + pageNum +
+                ", pageSize=" + pageSize +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }
