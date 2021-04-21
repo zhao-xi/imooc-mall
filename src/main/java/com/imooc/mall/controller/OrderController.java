@@ -50,7 +50,7 @@ public class OrderController {
     }
 
     @ApiOperation("生成二维码")
-    @PostMapping("/order/qrcode")
+    @GetMapping("/order/qrcode")
     public ApiRestResponse qrcode(@RequestParam String orderNo) {
         String pngAddr = orderService.qrcode(orderNo);
         return ApiRestResponse.success(pngAddr);

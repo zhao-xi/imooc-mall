@@ -13,10 +13,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -116,8 +113,8 @@ public class ProductAdminController {
         return ApiRestResponse.success();
     }
 
-    @ApiOperation("批量上下架商品")
-    @PostMapping("/admin/product/list")
+    @ApiOperation("后台商品列表")
+    @GetMapping("/admin/product/list")
     @ResponseBody
     public ApiRestResponse list(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
         PageInfo pageInfo = productService.listForAdmin(pageNum, pageSize);
